@@ -1,47 +1,89 @@
-import ArticleCard from "../../components/ArticleCard/ArticleCard";
-import { useState } from "react";
-import DiscussionBoard from "react-discussion-board";
-
-import "react-discussion-board/dist/index.css";
+import { useState, useEffect } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import axios from "axios";
+import JobLinkCard from "../../components/JobLinkCard/JobLinkCard";
+import { Container, Row, Col, Visible } from "react-grid-system";
 
 const FeaturedPage = () => {
-  const allPosts = [
-    {
-      profileImage:
-        "https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg",
-      name: "Jane Doe",
-      content: "<p>Hello everyone!</p><p>How are you all doing?</p><p>-Jane</>",
-      date: new Date("01 Jan 2020 01:12:00 GMT"),
-    },
-    {
-      profileImage:
-        "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-      name: "John Doe",
-      content: "Raising say express had chiefly detract demands she.  ",
-      date: new Date("01 Jan 2020 09:12:00 GMT"),
-    },
-  ];
+  const navigate = useNavigate();
+  let token = localStorage.getItem("token");
+  let username1 = localStorage.getItem("username");
+  const [newJobPost, setNewJobPost] = useState(null);
+  const [jobLinks, setJobLinks] = useState([]);
+  const [usernameToSend, setUsernameToSend] = useState("");
+  const [role1, setRole] = useState("");
+  const [link1, setLink] = useState("");
 
-  const [posts, setPosts] = useState(allPosts);
+  useEffect(() => {
+    setUsernameToSend(username1);
+  }, []);
 
-  const submitPost = (text) => {
-    const curDate = new Date();
+  useEffect(() => {
+    if (!token) {
+      return navigate(`/login`);
+    }
+  }, []);
 
-    setPosts([
-      ...posts,
-      {
-        profileImage:
-          "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-        name: "Jane Doe",
-        content: text,
-        date: curDate,
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    axios({
+      url: "http://localhost:3000/api/joblinks",
+      method: "POST",
+      data: {
+        username: usernameToSend,
+        ownerId: "nothing",
+        role: role1,
+        link: link1,
       },
-    ]);
+    })
+      .then((res) => setNewJobPost(res))
+      .catch(console.error);
   };
+  // console.log(jobLinksData);
 
+  useEffect(() => {
+    if (newJobPost) {
+      return navigate(`/`);
+    }
+  }, [newJobPost, navigate]);
+
+  console.log(link1);
+  console.log(role1);
+  console.log(localStorage.getItem("username"));
   return (
     <div>
-      <DiscussionBoard posts={posts} onSubmit={submitPost} />
+      <form onSubmit={(e) => handleSubmit(e)}>
+        <input
+          type="text"
+          name="company"
+          placeholder="Company"
+          class="input input-bordered w-full max-w-xs"
+          onChange={(e) => setUsernameToSend(e.target.value)}
+        />
+        <input
+          type="text"
+          name="JobLink"
+          placeholder="JobLink"
+          class="input input-bordered w-full max-w-xs"
+          onChange={(e) => setLink(e.target.value)}
+        />
+        <select
+          class="select select-bordered w-full max-w-xs"
+          onChange={(e) => setRole(e.target.value)}
+        >
+          <option disabled selected>
+            What Type Of Role?
+          </option>
+          <option value="Web Developer">Web Developer</option>
+          <option value="Data Science">Data Science</option>
+          <option value="Cyber Security">Cyber Security</option>
+        </select>
+
+        <button id="submit" type="submit" className="btn">
+          Submit
+        </button>
+      </form>
     </div>
   );
 };
