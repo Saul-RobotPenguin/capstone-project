@@ -32,11 +32,12 @@ const HomePage = () => {
   function SetItems(item) {
     setArticles(item);
   }
-
+  // bg-base-200 pt-36 pb-36
+  // lg:flex-row-reverse  
   return (
     <>
-      <div className="bg-base-200 pt-36 pb-36">
-        <div class="lg:flex-row-reverse  ">
+      <div className="hero min-h-screen bg-base-200">
+        <div class="hero-content text-center">
           <div>
             <h1 class=" text-5xl font-bold  ">
               Resources For Bootcamp Graduates!
