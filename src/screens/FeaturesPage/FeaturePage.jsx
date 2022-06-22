@@ -60,6 +60,7 @@ const FeaturedPage = () => {
           placeholder="Company"
           class="input input-bordered w-full max-w-xs"
           onChange={(e) => setUsernameToSend(e.target.value)}
+          required
         />
         <input
           type="text"
@@ -67,6 +68,7 @@ const FeaturedPage = () => {
           placeholder="JobLink"
           class="input input-bordered w-full max-w-xs"
           onChange={(e) => setLink(e.target.value)}
+          required
         />
         <select
           class="select select-bordered w-full max-w-xs"
