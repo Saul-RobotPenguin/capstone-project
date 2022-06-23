@@ -10,7 +10,7 @@ const GetAllJobLinks = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios("http://localhost:3000/api/joblinks");
+      const response = await axios(process.env.REACT_APP_BACKEND_JOBLINKS);
       setJobLinks(response.data.joblinks);
       console.log(response.data.joblinks);
     } catch (error) {
