@@ -46,7 +46,9 @@ const GetAllJobLinks = () => {
                   <div class="card-actions justify-center">
                     {/* <div className="card-actions justify-end pb-6 pr-6"> */}
                     <button className="btn-sm btn-primary">
-                      <a href={jobLink.link}>Apply To This Job!</a>
+                      <a href={jobLink.link} target="_blank">
+                        Apply To This Job!
+                      </a>
                     </button>
                     {/* </div> */}
                   </div>
