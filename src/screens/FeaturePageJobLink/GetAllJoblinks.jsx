@@ -39,11 +39,11 @@ const GetAllJobLinks = () => {
                 style={{ width: "320px", height: "200px" }}
               >
                 <div class="card-body">
-                  <h2 class="card-title"> {jobLink.role}</h2>
+                  <h2 class="card-title justify-center"> {jobLink.role}</h2>
                   <p>
                     A New {jobLink.role} Job Opportunity at {jobLink.username}
                   </p>
-                  <div class="card-actions justify-end">
+                  <div class="card-actions justify-center">
                     {/* <div className="card-actions justify-end pb-6 pr-6"> */}
                     <button className="btn-sm btn-primary">
                       <a href={jobLink.link}>Apply To This Job!</a>

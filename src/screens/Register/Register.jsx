@@ -59,14 +59,14 @@ const Register = () => {
         <form class="p-10 bg-white rounded-xl drop-shadow-lg space-y-5" onSubmit={(e) => handleSubmit(e)}>
             <h1 class="text-center text-3xl">REGISTER</h1>
             <div class="flex flex-col space-y-2">
-                <label class="text-sm font-light" for="email">Username</label>
+                <label class="text-sm font-light" for="username">Username</label>
                 <input class="w-96 px-3 py-2 rounded-md border border-slate-400" type="text" placeholder="Your Username"
                 name="username" id="username" onChange={(e) => setUsersUsername(e.target.value)}
               required/>
           </div>
           
             <div class="flex flex-col space-y-2">
-                <label class="text-sm font-light" for="password">Email</label>
+                <label class="text-sm font-light" for="email">Email</label>
                 <input class="w-96 px-3 py-2 rounded-md border border-slate-400" type="email"
                 placeholder="Your Email" name="email" id="email" onChange={(e) => setUsersEmail(e.target.value)}
               required/>

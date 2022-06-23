@@ -48,24 +48,24 @@ const HomePage = () => {
             </p>
 
             <div class="mt-4"></div>
-            <div class=" container flex justify-center ">
+            <div class=" container flex justify-center">
               <div class="flex rounded">
-                <div tabindex="0" role="button" aria-label="MAIN BUTTON">
+                <div class="justify-evenly" tabindex="0" role="button" aria-label="MAIN BUTTON">
                   <button
                     onClick={handleCyberSearch}
-                    className=" bg-dark_orange rounded-full btn hover:bg-milk hover:text-dark_orange "
+                    className=" bg-dark_orange rounded-full btn hover:bg-milk hover:text-dark_orange ml-2 mr-2"
                   >
                     Cyber Security
                   </button>
                   <button
                     onClick={handleWebDevSearch}
-                    className="bg-sky rounded-full btn hover:bg-milk hover:text-sky  focus:outline-none "
+                    className="bg-sky rounded-full btn hover:bg-milk hover:text-sky  focus:outline-none ml-2 mr-2 mt-2 mb-2"
                   >
                     Web Development
                   </button>
                   <button
                     onClick={handleDataSearch}
-                    className=" bg-red rounded-full btn hover:bg-milk hover:text-red focus:outline-none"
+                    className=" bg-red rounded-full btn hover:bg-milk hover:text-red focus:outline-none ml-2 mr-2"
                   >
                     Data Science
                   </button>

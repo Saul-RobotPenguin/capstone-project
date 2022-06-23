@@ -35,12 +35,13 @@ const Navbar = () => {
     if (loggedIn) {
       return (
         <>
-          <button>Welcome {name}!</button>
+          <div class="flex-5">
+            <p className="pl-4 pr-4"> Welcome {name}! </p> 
+          </div>
           <NavLink to="/">
             <button
               className="btn btn-outline btn-warning"
-              onClick={() => logout()}
-            >
+              onClick={() => logout()}>
               Logout
             </button>
           </NavLink>
