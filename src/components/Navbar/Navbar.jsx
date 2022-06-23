@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 import { Container, Row, Col } from "react-grid-system";
+import Logo from "../images/Capstone Logo.png";
 
 const Navbar = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -34,12 +35,13 @@ const Navbar = () => {
     if (loggedIn) {
       return (
         <>
-          <button>Welcome {name}!</button>
+          <div class="flex-5">
+            <p className="pl-4 pr-4"> Welcome {name}! </p> 
+          </div>
           <NavLink to="/">
             <button
               className="btn btn-outline btn-warning"
-              onClick={() => logout()}
-            >
+              onClick={() => logout()}>
               Logout
             </button>
           </NavLink>
@@ -64,7 +66,10 @@ const Navbar = () => {
         <Col>
           <div class="navbar bg-base-100">
             <div class="flex-1">
-              <a class=" normal-case text-xl">LOGO HERE</a>
+              <div class="w-10 rounded-full">
+              <img src={Logo} />
+              </div>
+              <a class=" normal-case text-xl">Hypersource</a>
             </div>
             {renderButton()}
             <div class="flex-none">

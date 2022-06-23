@@ -52,41 +52,80 @@ const FeaturedPage = () => {
   console.log(role1);
   console.log(localStorage.getItem("username"));
   return (
-    <div>
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <input
-          type="text"
-          name="company"
-          placeholder="Company"
-          class="input input-bordered w-full max-w-xs"
-          onChange={(e) => setUsernameToSend(e.target.value)}
-          required
-        />
-        <input
-          type="text"
-          name="JobLink"
-          placeholder="JobLink"
-          class="input input-bordered w-full max-w-xs"
-          onChange={(e) => setLink(e.target.value)}
-          required
-        />
-        <select
-          class="select select-bordered w-full max-w-xs"
-          onChange={(e) => setRole(e.target.value)}
-        >
-          <option disabled selected>
-            What Type Of Role?
-          </option>
-          <option value="Web Developer">Web Developer</option>
-          <option value="Data Science">Data Science</option>
-          <option value="Cyber Security">Cyber Security</option>
-        </select>
 
-        <button id="submit" type="submit" className="btn">
-          Submit
-        </button>
-      </form>
+
+    <div class="w-screen h-screen flex justify-center items-center
+    bg-gradient-to-br from-purple-700 to-amber-700">
+        <form class="p-10 bg-white rounded-xl drop-shadow-lg space-y-5" onSubmit={(e) => handleSubmit(e)}>
+            <h1 class="text-center text-3xl">JOB POSTING</h1>
+            <div class="flex flex-col space-y-2">
+                <label class="text-sm font-light" for="company">Company</label>
+                <input class="w-96 px-3 py-2 rounded-md border border-slate-400" type="text" placeholder="Company"
+                name="company" id="company" onChange={(e) => setUsernameToSend(e.target.value)}
+              required/>
+          </div>
+          
+            <div class="flex flex-col space-y-2">
+                <label class="text-sm font-light" for="job link">Job Link</label>
+                <input class="w-96 px-3 py-2 rounded-md border border-slate-400" type="text"
+                placeholder="Job Link" name="job link" id="job link" onChange={(e) => setLink(e.target.value)}
+              required/>
+          </div>
+
+        <div class="flex flex-col space-y-2">
+        <label class="text-sm font-light" for="role">What Type Of Role?</label>
+        <select class="w-96 px-3 py-2 rounded-md border border-slate-400" type="select" placeholder="What Type Of Role?" name="password" id="password" onChange={(e) => setRole(e.target.value)} >
+         
+        <option disabled selected>
+            What Type Of Role?
+        </option>
+        <option value="Web Developer">Web Developer</option>
+        <option value="Data Science">Data Science</option>
+        <option value="Cyber Security">Cyber Security</option>
+        </select>          
+        </div>
+
+
+            <button class="btn" type="submit">
+                Create
+            </button>
+        </form>
     </div>
+
+
+    // <div>
+    //   <form onSubmit={(e) => handleSubmit(e)}>
+    //     <input
+    //       type="text"
+    //       name="company"
+    //       placeholder="Company"
+    //       class="input input-bordered w-full max-w-xs"
+    //       onChange={(e) => setUsernameToSend(e.target.value)}
+    //     />
+    //     <input
+    //       type="text"
+    //       name="JobLink"
+    //       placeholder="JobLink"
+    //       class="input input-bordered w-full max-w-xs"
+    //       onChange={(e) => setLink(e.target.value)}
+    //     />
+    //     <select
+    //       class="select select-bordered w-full max-w-xs"
+    //       onChange={(e) => setRole(e.target.value)}
+    //     >
+    //       <option disabled selected>
+    //         What Type Of Role?
+    //       </option>
+    //       <option value="Web Developer">Web Developer</option>
+    //       <option value="Data Science">Data Science</option>
+    //       <option value="Cyber Security">Cyber Security</option>
+    //     </select>
+
+    //     <button id="submit" type="submit" className="btn">
+    //       Submit
+    //     </button>
+    //   </form>
+    // </div>
   );
 };
 

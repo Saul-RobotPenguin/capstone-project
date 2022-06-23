@@ -32,11 +32,12 @@ const HomePage = () => {
   function SetItems(item) {
     setArticles(item);
   }
-
+  // bg-base-200 pt-36 pb-36
+  // lg:flex-row-reverse  
   return (
     <>
-      <div className="bg-base-200 pt-36 pb-36">
-        <div class="lg:flex-row-reverse  ">
+      <div className="hero min-h-screen bg-base-200">
+        <div class="hero-content text-center">
           <div>
             <h1 class=" text-5xl font-bold  ">
               Resources For Bootcamp Graduates!
@@ -47,24 +48,24 @@ const HomePage = () => {
             </p>
 
             <div class="mt-4"></div>
-            <div class=" container flex justify-center ">
+            <div class=" container flex justify-center">
               <div class="flex rounded">
-                <div tabindex="0" role="button" aria-label="MAIN BUTTON">
+                <div class="justify-evenly" tabindex="0" role="button" aria-label="MAIN BUTTON">
                   <button
                     onClick={handleCyberSearch}
-                    className=" bg-dark_orange rounded-full btn hover:bg-milk hover:text-dark_orange "
+                    className=" bg-dark_orange rounded-full btn hover:bg-milk hover:text-dark_orange ml-2 mr-2"
                   >
                     Cyber Security
                   </button>
                   <button
                     onClick={handleWebDevSearch}
-                    className="bg-sky rounded-full btn hover:bg-milk hover:text-sky  focus:outline-none "
+                    className="bg-sky rounded-full btn hover:bg-milk hover:text-sky  focus:outline-none ml-2 mr-2 mt-2 mb-2"
                   >
                     Web Development
                   </button>
                   <button
                     onClick={handleDataSearch}
-                    className=" bg-red rounded-full btn hover:bg-milk hover:text-red focus:outline-none"
+                    className=" bg-red rounded-full btn hover:bg-milk hover:text-red focus:outline-none ml-2 mr-2"
                   >
                     Data Science
                   </button>
